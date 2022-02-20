@@ -1,5 +1,5 @@
 const fs = require('fs');
-const input = fs.readFileSync('i.txt', 'utf8').trim().split('\n');
+const input = fs.readFileSync('../i.txt', 'utf8').trim().split('\n');
 
 let currentline = 0;
 function readline() {
