@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    article {
+      width: 100%;
+      overflow: hidden;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    section {
+      display: flex;
+      transition: 0.5s ease-in-out;
+    }
+    div:nth-child(2n + 1) {
+      background: linear-gradient(lightgreen 0%, lightgrey 75%);
+    }
+    div:nth-child(2n) {
+      background: linear-gradient(lightgrey 0%, lightgreen 75%);
+    }
+    div {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 10rem;
+      transition: all 0.2s ease-in-out;
+      font-family: Poppins;
+      font-weight: 900;
+      gap: 2rem;
+      overflow: hidden;
+      /* margin-bottom: 50vh; */
+    }
+    div img {
+      width: 500px;
+      transition: all 0.7s ease-out;
+      scale: 0;
+    }
+    div p {
+      transition: all 0.7s ease-out;
+    }
+  </style>
+
+  <body>
+    <article>
+      <section class="s">
+        <div>
+          <p>Apple</p>
+          <img src="./img/1.png" />
+        </div>
+        <div>
+          <p>Ball</p>
+          <img src="./img/2.png" />
+        </div>
+        <div>
+          <p>Cock</p>
+          <img src="./img/3.png" />
+        </div>
+      </section>
+    </article>
+  </body>
+  <script>
+    //glob
+    let i = 0;
+    const sc = document.querySelector('section');
+    const totalChild = sc.childElementCount;
+    const scDC = (ind, dind) => sc.children[ind].children[dind].style;
+    //init
+    sc.style.width = `${totalChild * 100}%`;
+    for (let j = 0; j < totalChild; j++) {
+      scDC(j, 0).transform = `translateX(-300%)`;
+      scDC(j, 1).transform = `scale(0)`;
+    }
+    setTimeout(() => {
+      scDC(0, 1).transform = `scale(1)`;
+      scDC(0, 0).transform = `translateX(0)`;
+    }, 100);
+    //int
+    setInterval(() => {
+      const beforeIndex = i === 0 ? totalChild - 1 : i - 1;
+      sc.style.transform = `translateX(-${
+        i >= totalChild - 1 ? ((i = 0), 0) : ++i * (100 / totalChild)
+      }%)`;
+      setTimeout(() => {
+        scDC(i, 0).transform = `translateX(0)`;
+        scDC(i, 1).transform = `scale(1)`;
+      }, 750);
+      setTimeout(() => {
+        scDC(i, 0).transform = `translateX(-300%)`;
+        scDC(i, 1).transform = `scale(0)`;
+      }, 3300);
+    }, 3500);
+  </script>
+</html>

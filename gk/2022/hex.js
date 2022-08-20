@@ -7,10 +7,17 @@ const readline = () => {
   return input[currentLine++];
 };
 
-const solve = (N, M, C_) => {};
+const solve = (W, G) => {};
 
 const T = readline();
 
 for (let i = 1; i <= T; i++) {
-  console.log(`Case #${i}: ${solve(N, M, C_)}`);
+  const W = readline();
+  let G = [];
+  for (let i = 0; i < w; i++) {
+    let a = readline().trim().split('');
+    G.push(a);
+  }
+  console.log(grid);
+  console.log(`Case #${i}: ${solve(W, G)}`);
 }
