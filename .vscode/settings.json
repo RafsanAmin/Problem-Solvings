@@ -1,10 +1,9 @@
 {
   "files.associations": {
     "*.ejs": "html",
-    "*.php": "blade",
+    "*.php.blade": "blade",
     "iostream": "cpp",
     "cmath": "cpp",
-    "streambuf": "cpp",
-    "ostream": "cpp"
+    "string": "cpp"
   }
 }

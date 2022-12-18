@@ -151,29 +151,52 @@ var removeElement = function (nums, val) {
   }
   return x - t;
 };
-let arr = [1, 2, 6, 8, 2, 2, 6, 9];
+// let arr = [1, 2, 6, 8, 2, 2, 6, 9];
 
-let xs = removeElement(arr, 2);
-console.log(xs, arr);
+// let xs = removeElement(arr, 2);
+// console.log(xs, arr);
 
 var letterCombinations = function (digits) {
-  let sol = [];
-  let mid = [];
-  const map = new Map([
-    ['2', 'abc'],
-    ['3', 'def'],
-    ['4', 'ghi'],
-    ['5', 'jkl'],
-    ['6', 'mno'],
-    ['7', 'pqrs'],
-    ['8', 'tuv'],
-    ['9', 'wxyz'],
-  ]);
-  for (let i = 0; i < digits.length; i++) {
-    let x = digits.charAt(i);
-    mid.push(map.get(x));
+  if (digits === '') {
+    return [];
+  } else {
+    let timer = [];
+    let sol = [];
+    let ind = 1;
+    const map = new Map([
+      ['2', 'abc'],
+      ['3', 'def'],
+      ['4', 'ghi'],
+      ['5', 'jkl'],
+      ['6', 'mno'],
+      ['7', 'pqrs'],
+      ['8', 'tuv'],
+      ['9', 'wxyz'],
+    ]);
+    for (let i = 0; i < digits.length; i++) {
+      let x = map.get(digits.charAt(i));
+      timer.push([0, x.length, x]);
+      ind *= x.length;
+    }
+    for (let j = 1; j <= ind; j++) {
+      let dt = '';
+      for (let i = timer.length - 1; i >= 0; i--) {
+        if (timer[i][0] + 1 > timer[i][1]) {
+          if (timer[i - 1] === undefined) {
+            break;
+          }
+          timer[i][0] = 0;
+          timer[i - 1][0] += 1;
+          dt = timer[i][2].charAt(timer[i][0]) + dt;
+        } else {
+          dt = timer[i][2].charAt(timer[i][0]) + dt;
+        }
+      }
+      timer[timer.length - 1][0] += 1;
+      sol.push(dt);
+    }
+    return sol;
   }
-  console.log(mid);
 };
 
-letterCombinations('968');
+console.log(letterCombinations('2'));

@@ -1,0 +1,1 @@
+cont int s - 8;
