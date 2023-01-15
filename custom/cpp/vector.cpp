@@ -1,32 +1,45 @@
-#include <iostream>
-#include <string>
-#include <math.h>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-void print(auto x)
+class Vector
 {
-  cout << x << endl;
-}
-
-int joinNumber(vector<int> &arr)
-{
-  int total = 0;
-  int size = arr.size() - 1;
-
-  for (int i = 0; i <= size; i++)
+public:
+  float x, y;
+  Vector(float X, float Y)
   {
-    total += (arr[i] * pow(10, size - i));
-    print(total);
+    x = X, y = Y;
+  };
+  void add(Vector &vec)
+  {
+    x += vec.x;
+    y += vec.y;
   }
-  return total;
+  void print()
+  {
+    cout << "x= " << x << ", y=" << y << endl;
+  }
+};
+
+template <typename T>
+void printV(vector<T> &arr)
+{
+  cout << endl;
+  for (int x : arr)
+  {
+    cout << x;
+  }
+  cout << endl;
 }
 
 int main()
 {
-  vector<int> numbers({5, 2, 2, 2, 1});
 
-  cout << endl
-       << joinNumber(numbers) << endl;
+  vector<char> a({'c', 'c', 'c'});
+
+  for (int x : a)
+  {
+    a[1] = 'j';
+  }
+
+  printV<char>(a);
 }

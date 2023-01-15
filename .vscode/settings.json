@@ -4,6 +4,23 @@
     "*.php.blade": "blade",
     "iostream": "cpp",
     "cmath": "cpp",
-    "string": "cpp"
+    "string": "cpp",
+    "ostream": "cpp",
+    "array": "cpp",
+    "cwchar": "cpp",
+    "vector": "cpp",
+    "exception": "cpp",
+    "functional": "cpp",
+    "initializer_list": "cpp",
+    "iosfwd": "cpp",
+    "istream": "cpp",
+    "new": "cpp",
+    "sstream": "cpp",
+    "stdexcept": "cpp",
+    "streambuf": "cpp",
+    "tuple": "cpp",
+    "type_traits": "cpp",
+    "utility": "cpp",
+    "random": "cpp"
   }
 }

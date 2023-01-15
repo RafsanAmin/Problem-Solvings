@@ -1,5 +1,9 @@
 const readline = require('readline');
 
+x = new readline.Interface();
+
+x.promimage.png;
+
 let salary = 16500;
 let rateHS = 55;
 let medSalary = 700;
