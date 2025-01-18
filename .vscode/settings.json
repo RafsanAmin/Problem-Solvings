@@ -1,5 +1,7 @@
 {
   "files.associations": {
+    "*.ndjson": "jsonl",
+    "*.dbclient-js": "javascript",
     "*.ejs": "html",
     "*.php.blade": "blade",
     "iostream": "cpp",
@@ -69,6 +71,8 @@
     "thread": "cpp",
     "typeindex": "cpp",
     "typeinfo": "cpp",
-    "valarray": "cpp"
+    "valarray": "cpp",
+    "stdio.h": "c",
+    "math.h": "c"
   }
 }

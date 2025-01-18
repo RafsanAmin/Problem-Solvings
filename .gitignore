@@ -1,3 +1,5 @@
 .vscode/*
 timuspass
 .cph
+*.bin
+*.exe
