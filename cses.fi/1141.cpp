@@ -6,35 +6,35 @@ int main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-  int n;
+  int n, ans = 0;
   cin >> n;
   vector<int> nums(n);
-  map<int, int> sorted;
+  map<int, int> mp;
 
   for (int i = 0; i < n; i++)
   {
     cin >> nums[i];
-    sorted[nums[i]]++;
   }
 
-  int j = 0, l = 0, k = n - 1, r = n - 1;
+  int j = 0, k = 0;
 
-  while (j >= k)
+  while (k < n)
   {
 
-    j++;
-    k--;
-
-    if (sorted[nums[j]]-- > 1)
+    if (mp.find(nums[k]) == mp.end())
     {
-      l++;
+      mp.insert({nums[k], k});
     }
-
-    if (sorted[nums[k]]-- > 1)
+    else
     {
-      r--;
+      if (mp[nums[k]] >= j)
+        j = mp[nums[k]] + 1;
+      mp[nums[k]] = k;
     }
+    
+    ans = max(k - j + 1, ans);
+    k++;
   }
 
-  cout << r - l + 1;
+  cout << ans;
 }
