@@ -15,7 +15,9 @@ bool dfs(int k)
     if (assigned[adj[k][i]] == 0)
     {
       assigned[adj[k][i]] = j;
-      return dfs(adj[k][i]);
+
+      if (!dfs(adj[k][i]))
+        return false;
     }
     else
     {

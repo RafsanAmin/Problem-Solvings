@@ -3,3 +3,4 @@ timuspass
 .cph
 *.bin
 *.exe
+*.o

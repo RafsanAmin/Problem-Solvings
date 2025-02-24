@@ -4,16 +4,17 @@ using namespace std;
 typedef long long int ll;
 
 const int MAX = 1E6;
+const int MOD = 1E9+7;
 
 vector<ll> dp(MAX+1, -1);
 vector<ll> coins;
 
 ll sol(ll n, ll x)
 {
-  dp[0] = 0;
+  dp[0] = 1;
 
   for(ll i = 1; i <= x; i++){
-    ll mn = -1;
+    ll sum = 0;
 
     for (ll j = 0; j < n; j++)
     {
@@ -21,18 +22,10 @@ ll sol(ll n, ll x)
       if(i - coins[j] < 0)
         continue;
 
-      if(dp[i - coins[j]] == -1)
-        continue;
+      sum += dp[i - coins[j]] % MOD;
 
-      if(mn == -1){
-        mn = dp[i - coins[j]]+1;
-        continue;
-      }
-
-
-      mn = min(mn, dp[i - coins[j]]+1);
     }
-    dp[i] = mn;
+    dp[i] = sum % MOD;
   }
 
 
